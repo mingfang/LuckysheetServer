@@ -19,7 +19,7 @@ import java.util.List;
  * @author Administrator
  */
 @Slf4j
-@Repository(value = "postgresRecordDataInsertHandle")
+@Repository(value = "recordDataInsertHandle")
 public class RecordDataInsertHandle extends BaseHandle implements IRecordDataInsertHandle{
 
     /**

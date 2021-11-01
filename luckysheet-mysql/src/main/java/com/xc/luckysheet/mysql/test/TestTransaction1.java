@@ -74,7 +74,7 @@ public class TestTransaction1 extends BaseHandle {
 
 
     //回滚
-    @Transactional(value = "mysqlTxManager",rollbackFor = Exception.class)
+    @Transactional(value = "txManager",rollbackFor = Exception.class)
     public String add3(){
         try{
             String sql="insert into test(id,jsontest,updatetime) values(?,?,?)";
@@ -94,7 +94,7 @@ public class TestTransaction1 extends BaseHandle {
         }
     }
 
-    @Transactional(value = "mysqlTxManager")
+    @Transactional(value = "txManager")
     public String add4() throws Exception {
         try{
             String sql="insert into test(id,jsontest,updatetime) values(?,?,?)";
@@ -116,7 +116,7 @@ public class TestTransaction1 extends BaseHandle {
 
     //回滚
     //rollbackFor这属性指定了，既使你出现了checked这种例外，那么它也会对事务进行回滚
-    @Transactional(value = "mysqlTxManager",rollbackFor = Exception.class)
+    @Transactional(value = "txManager",rollbackFor = Exception.class)
     public String add5() throws Exception {
         try{
             String sql="insert into test(id,jsontest,updatetime) values(?,?,?)";

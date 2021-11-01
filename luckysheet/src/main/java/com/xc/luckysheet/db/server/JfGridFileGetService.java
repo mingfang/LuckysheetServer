@@ -38,16 +38,16 @@ public class JfGridFileGetService {
 //    @Resource(name = "postgresRecordSelectHandle")
 //    private IRecordSelectHandle recordSelectHandle;
 
-    @Resource(name = "mysqlRecordDataInsertHandle")
+    @Resource(name = "recordDataInsertHandle")
     private IRecordDataInsertHandle recordDataInsertHandle;
 
-    @Resource(name = "mysqlRecordDataUpdataHandle")
+    @Resource(name = "recordDataUpdateHandle")
     private IRecordDataUpdataHandle recordDataUpdataHandle;
 
-    @Resource(name = "mysqlRecordDelHandle")
+    @Resource(name = "recordDelHandle")
     private IRecordDelHandle recordDelHandle;
 
-    @Resource(name = "mysqlRecordSelectHandle")
+    @Resource(name = "recordSelectHandle")
     private IRecordSelectHandle recordSelectHandle;
 
     @Autowired

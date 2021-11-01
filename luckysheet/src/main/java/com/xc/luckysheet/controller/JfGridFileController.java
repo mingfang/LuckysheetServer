@@ -1,8 +1,11 @@
 package com.xc.luckysheet.controller;
 
 import com.alibaba.fastjson.JSONObject;
+import com.xc.common.api.ResponseVO;
 import com.xc.common.utils.JsonUtil;
 import com.xc.luckysheet.db.server.JfGridFileGetService;
+import com.xc.luckysheet.db.server.JfGridUpdateService;
+import com.xc.luckysheet.entity.GridRecordDataModel;
 import com.xc.luckysheet.entity.LuckySheetGridModel;
 import com.xc.luckysheet.entity.enummodel.OperationTypeEnum;
 import com.xc.luckysheet.utils.Pako_GzipUtils;
@@ -16,10 +19,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.OutputStream;
-import java.util.Arrays;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+
+import static com.xc.luckysheet.db.server.JfGridUpdateService.strToModel;
 
 /**
  *  图表格页面调用
@@ -41,6 +43,19 @@ public class JfGridFileController {
 
     @Autowired
     private JfGridFileGetService jfGridFileGetService;
+
+    @Autowired
+    private JfGridUpdateService jfGridUpdateService;
+
+    @PostMapping("/create")
+    public ResponseVO create(String gridKey){
+        log.info("create " + gridKey);
+        List<GridRecordDataModel> models=new ArrayList<>(1);
+        models.add(strToModel(gridKey, (1)+"",1,0));
+        String result=jfGridUpdateService.insert(models);
+
+        return ResponseVO.successInstance("success");
+    }
 
     /**
      * 默认加载表格 分块

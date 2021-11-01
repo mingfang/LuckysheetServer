@@ -48,16 +48,16 @@ public class JfGridUpdateService {
 //    @Resource(name = "postgresRecordSelectHandle")
 //    private IRecordSelectHandle recordSelectHandle;
 
-    @Resource(name = "mysqlRecordDataInsertHandle")
+    @Resource(name = "recordDataInsertHandle")
     private IRecordDataInsertHandle recordDataInsertHandle;
 
-    @Resource(name = "mysqlRecordDataUpdataHandle")
+    @Resource(name = "recordDataUpdateHandle")
     private IRecordDataUpdataHandle recordDataUpdataHandle;
 
-    @Resource(name = "mysqlRecordDelHandle")
+    @Resource(name = "recordDelHandle")
     private IRecordDelHandle recordDelHandle;
 
-    @Resource(name = "mysqlRecordSelectHandle")
+    @Resource(name = "recordSelectHandle")
     private IRecordSelectHandle recordSelectHandle;
 
     @Autowired
@@ -472,6 +472,7 @@ public class JfGridUpdateService {
      * @return
      */
     private String Operation_sha(String gridKey, JSONObject bson) {
+        log.info("Operation_sha gridKey:" + gridKey);
         try {
             //Integer i=Integer.parseInt(bson.get("i").toString());// 当前sheet的index值,此处为null
             JSONObject v =  bson.getJSONObject("v");   //创建的对象
@@ -485,7 +486,7 @@ public class JfGridUpdateService {
             }
             log.info("Operation_sha---" + index);
             //1、先获取原数据
-            List<JSONObject> _dbObject = recordSelectHandle.getBlocksByGridKey(gridKey.toString(), false);
+            List<JSONObject> _dbObject = recordSelectHandle.getBlocksByGridKey(gridKey, false);
             log.info("getIndexByGridKey---" + _dbObject);
             if (_dbObject == null) {
                 return "gridKey=" + gridKey + "的数据表格不存在";

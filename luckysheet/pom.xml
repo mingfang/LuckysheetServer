@@ -63,16 +63,6 @@
             <artifactId>luckysheet-db</artifactId>
             <version>${project.version}</version>
         </dependency>
-        <dependency>
-            <groupId>com.xc</groupId>
-            <artifactId>luckysheet-mysql</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-<!--        <dependency>-->
-<!--            <groupId>com.xc</groupId>-->
-<!--            <artifactId>luckysheet-postgre</artifactId>-->
-<!--            <version>${project.version}</version>-->
-<!--        </dependency>-->
 
         <!-- websocket start -->
         <dependency>
@@ -165,12 +155,29 @@
             <properties>
                 <profiles.active>postgres</profiles.active>
             </properties>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <dependencies>
+                <dependency>
+                    <groupId>com.xc</groupId>
+                    <artifactId>luckysheet-postgre</artifactId>
+                    <version>${project.version}</version>
+                </dependency>
+            </dependencies>
         </profile>
         <profile>
             <id>mysql</id>
             <properties>
                 <profiles.active>mysql</profiles.active>
             </properties>
+            <dependencies>
+                <dependency>
+                    <groupId>com.xc</groupId>
+                    <artifactId>luckysheet-mysql</artifactId>
+                    <version>${project.version}</version>
+                </dependency>
+            </dependencies>
         </profile>
     </profiles>
 

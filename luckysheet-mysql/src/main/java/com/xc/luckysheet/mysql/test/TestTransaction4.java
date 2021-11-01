@@ -13,7 +13,7 @@ import java.util.Date;
  */
 @Slf4j
 @Service
-@Transactional(value = "mysqlTxManager",rollbackFor = Exception.class)
+@Transactional(value = "txManager",rollbackFor = Exception.class)
 public class TestTransaction4 extends BaseHandle {
 
 

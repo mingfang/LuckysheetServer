@@ -25,5 +25,15 @@
     <name>luckySheetServer</name>
     <description>luckysheet</description>
 
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>1.18.20</version>
+                <optional>false</optional>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
 </project>

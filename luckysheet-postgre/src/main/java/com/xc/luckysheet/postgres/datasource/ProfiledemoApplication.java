@@ -29,13 +29,13 @@ public class ProfiledemoApplication implements TransactionManagementConfigurer {
     private DataSource postgresDataSource;
 
 
-    @Bean(name = "postgresTxManager")
+    @Bean(name = "txManager")
     public PlatformTransactionManager postgreTxManager() {
         return new DataSourceTransactionManager(postgresDataSource);
     }
 
 
-    @Resource(name="postgresTxManager")
+    @Resource(name="txManager")
     private PlatformTransactionManager txManager;
 
     /**

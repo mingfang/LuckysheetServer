@@ -29,13 +29,13 @@ public class ProfiledemoApplication implements TransactionManagementConfigurer {
     private DataSource dataSource;
 
 
-    @Bean(name = "mysqlTxManager")
-    public PlatformTransactionManager mysqlTxManager() {
+    @Bean(name = "txManager")
+    public PlatformTransactionManager txManager() {
         return new DataSourceTransactionManager(dataSource);
     }
 
 
-    @Resource(name="mysqlTxManager")
+    @Resource(name="txManager")
     private PlatformTransactionManager txManager;
 
     /**

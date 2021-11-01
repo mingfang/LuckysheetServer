@@ -16,7 +16,7 @@ import java.util.List;
  * @author Administrator
  */
 @Slf4j
-@Repository(value = "postgresRecordDelHandle")
+@Repository(value = "recordDelHandle")
 public class RecordDelHandle extends BaseHandle implements IRecordDelHandle {
 
     /**

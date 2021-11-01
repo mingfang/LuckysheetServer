@@ -15,7 +15,7 @@ import java.util.Date;
 @Service
 public class TestTransaction3 extends BaseHandle {
 
-    @Transactional(value = "mysqlTxManager",rollbackFor = Exception.class)
+    @Transactional(value = "txManager",rollbackFor = Exception.class)
     public String test(){
         addsuccess();
         adderror();
@@ -23,7 +23,7 @@ public class TestTransaction3 extends BaseHandle {
         return "success";
     }
 
-    @Transactional(value = "mysqlTxManager",rollbackFor = Exception.class)
+    @Transactional(value = "txManager",rollbackFor = Exception.class)
     public String addsuccess(){
         try{
             String sql="insert into test(id,jsontest,updatetime) values(?,?,?)";
@@ -36,7 +36,7 @@ public class TestTransaction3 extends BaseHandle {
         }
     }
 
-    @Transactional(value = "mysqlTxManager",rollbackFor = Exception.class)
+    @Transactional(value = "txManager",rollbackFor = Exception.class)
     public String adderror(){
         try{
             //类型错误

@@ -26,15 +26,15 @@ import java.util.Map;
  * @author Administrator
  */
 @Slf4j
-@Repository(value ="postgresRecordDataUpdataHandle" )
+@Repository(value ="recordDataUpdateHandle" )
 public class RecordDataUpdataHandle extends BaseHandle implements IRecordDataUpdataHandle {
 
     @Resource
-    @Qualifier("postgresRecordDataInsertHandle")
+    @Qualifier("recordDataInsertHandle")
     private IRecordDataInsertHandle RecordDataInsertHandle;
 
     @Resource
-    @Qualifier("postgresRecordDelHandle")
+    @Qualifier("recordDelHandle")
     private IRecordDelHandle recordDelHandle;
 
     /**
@@ -44,7 +44,7 @@ public class RecordDataUpdataHandle extends BaseHandle implements IRecordDataUpd
      * @param ids
      * @return
      */
-    @Transactional(value = "postgresTxManager",rollbackFor = Exception.class)
+    @Transactional(value = "txManager",rollbackFor = Exception.class)
     @Override
     public Boolean updateMulti2(List<JSONObject> blocks, List<String> ids) {
         try{
@@ -282,7 +282,7 @@ public class RecordDataUpdataHandle extends BaseHandle implements IRecordDataUpd
      * @param model
      * @return
      */
-    @Transactional(value = "postgresTxManager",rollbackFor = Exception.class)
+    @Transactional(value = "txManager",rollbackFor = Exception.class)
     @Override
     public boolean updateDataStatus(GridRecordDataModel model) {
         try{
@@ -309,7 +309,7 @@ public class RecordDataUpdataHandle extends BaseHandle implements IRecordDataUpd
      * @param index2
      * @return
      */
-    @Transactional(value = "postgresTxManager",rollbackFor = Exception.class)
+    @Transactional(value = "txManager",rollbackFor = Exception.class)
     @Override
     public boolean updateDataMsgHide(GridRecordDataModel model, Integer hide, String index1, String index2) {
         try{
@@ -334,7 +334,7 @@ public class RecordDataUpdataHandle extends BaseHandle implements IRecordDataUpd
      * @param index
      * @return
      */
-    @Transactional(value = "postgresTxManager",rollbackFor = Exception.class)
+    @Transactional(value = "txManager",rollbackFor = Exception.class)
     @Override
     public boolean updateDataMsgNoHide(GridRecordDataModel model, Integer hide, String index) {
         try{
@@ -414,7 +414,7 @@ public class RecordDataUpdataHandle extends BaseHandle implements IRecordDataUpd
      * @param words
      * @return
      */
-    @Transactional(value = "postgresTxManager",rollbackFor = Exception.class)
+    @Transactional(value = "txManager",rollbackFor = Exception.class)
     @Override
     public boolean updateJsonbForInsertNull(JSONObject query, String word, JSONObject db, Integer position, String words) {
         String condition="";
@@ -452,7 +452,7 @@ public class RecordDataUpdataHandle extends BaseHandle implements IRecordDataUpd
      * @param position
      * @return
      */
-    @Transactional(value = "postgresTxManager",rollbackFor = Exception.class)
+    @Transactional(value = "txManager",rollbackFor = Exception.class)
     @Override
     public boolean updateJsonbForSetNull(JSONObject query, String word, JSONObject db, Integer position) {
         String condition="";
@@ -492,7 +492,7 @@ public class RecordDataUpdataHandle extends BaseHandle implements IRecordDataUpd
      * @param words
      * @return
      */
-    @Transactional(value = "postgresTxManager",rollbackFor = Exception.class)
+    @Transactional(value = "txManager",rollbackFor = Exception.class)
     @Override
     public boolean updateJsonbForSetRootNull(JSONObject query, String word, JSONObject db, Integer position, String words) {
         String condition="";
